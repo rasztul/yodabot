@@ -26,7 +26,8 @@
                   <span class="online_icon"></span>
                 </div>
                 <div class="user_info">
-                  <span>Chat with YodaBot</span>
+                  <span>Chat with YodaBot </span>
+                  <span style="color:#aaa; font-size: 10pt;">By Raúl Arturo Garduño Cortez</span>
                 </div>
               </div>
             </div>
