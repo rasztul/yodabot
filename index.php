@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <form id="formYodaBot" @submit.prevent="onSubmit" action="#" method="post">
+  <form id="formYodaBot" @submit.prevent="onSubmit" action="#" method="post" autocomplete="off" style="height: 500px;">
     <div class="container-fluid h-100">
       <div class="row justify-content-center h-100">
         <div class="col-md-8 col-xl-6 chat">
@@ -30,14 +30,40 @@
                 </div>
               </div>
             </div>
-            <div class="card-body msg_card_body">
-              <ol>
-                <li v-for="(messageUser, index) in user">
-                  {{ user[ index ] }}
-                  {{ bot[ index ] }}
-                </li>
-              </ol>
+            <div class="card-body msg_card_body" 
+                  style=" overflow: auto;
+                    height: 500px;"
+                    id="bodyMessages">
+              <!-- itera los mensajes del usuario y del bot-->
+              <div v-for="(messageUser, index) in user" >
+
+                <div v-if="bot[ index ] " class="d-flex justify-content-end mb-4">
+                  <div class="msg_cotainer_send">
+                    {{ user[ index ] }}
+                  </div>
+                  <div class="img_cont_msg">
+                    <img 
+                  src="https://dev-res.thumbr.io/libraries/43/73/37/lib/1464773258601_4.jpg?size=854x493s&ext=jpg" 
+                  class="rounded-circle user_img_msg" 
+                  width="50">
+                  </div>
+                </div>
+
+                <div v-if="user[ index ] " class="d-flex justify-content-start mb-4">
+                  <div class="img_cont_msg">
+                    <img 
+                      src="https://lacomparacion.com/wp-content/uploads/2020/02/Ahora-hay-un-Lego-Baby-Yoda.jpg" 
+                      class="rounded-circle user_img_msg" 
+                      width="50">
+                  </div>
+                  <div class="msg_cotainer">
+                    {{ bot[ index ] }}
+                  </div>
+                </div>
+              </div>
+              <div style="padding-top: 80px;"></div>
             </div>
+
             <div class="card-footer">
               <div v-if="isWriting">
                 <span>writing…</span>
