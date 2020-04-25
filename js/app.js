@@ -109,11 +109,11 @@ window.onload = () => {
       },
       // agrega la informacion del localSotorage al state
       setBotArray: function () {
-        this.bot = localStorage.bot.split("|");
+        this.bot = localStorage.bot ? localStorage.bot.split("|") : [];
       },
       // agrega la informacion del localstorage user al state
       setUserArray: function () {
-        this.user = localStorage.user.split("|");
+        this.user = localStorage.user ? localStorage.user.split("|") : [];
       },
       // Hace una solicitud a la api para configurar la conversacion
       setupConversation: function () {
